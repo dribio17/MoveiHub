@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import SeasonEpisodes from '@/components/SeasonEpisodes';
 import { 
   Star, 
   Calendar, 
@@ -225,7 +226,7 @@ export default function TvShowDetail() {
               {/* Tabs */}
               <div className="border-b border-gray-700">
                 <nav className="flex space-x-8">
-                  {['overview', 'cast', 'details'].map((tab) => (
+                  {['overview', 'episodes', 'cast', 'details'].map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
@@ -243,6 +244,12 @@ export default function TvShowDetail() {
 
               {/* Tab Content */}
               <div className="py-6">
+                {activeTab === 'episodes' && (
+                  <SeasonEpisodes
+                    tvId={tvId}
+                    numberOfSeasons={number_of_seasons}
+                  />
+                )}
                 {activeTab === 'overview' && (
                   <div className="space-y-6">
                     <p className="text-gray-300 text-lg leading-relaxed">

@@ -36,7 +36,6 @@ export default function RootLayout({ children }) {
         <main className="pt-16">
           {children}
         </main>
-        <MoveiBot />
       </body>
     </html>
   );
