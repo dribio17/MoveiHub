@@ -32,7 +32,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <span className="text-white font-bold text-2xl tracking-wider">
-                Movei<span className="text-red-400">Hub</span>
+                dri<span className="text-red-400">bio</span>
               </span>
             </Link>
 

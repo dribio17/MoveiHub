@@ -108,11 +108,11 @@ export default function Home() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <span className="text-white font-bold text-xl">
-                Movei<span className="text-red-400">Hub</span>
+                dri<span className="text-red-400">bio</span>
               </span>
             </div>
             <p className="text-gray-400 text-sm">
-              © 2024 MoveiHub. All rights reserved.
+              © 2024 dribio. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-2">
               This product uses the TMDB API but is not endorsed or certified by TMDB.
