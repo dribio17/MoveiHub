@@ -42,7 +42,7 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-white mt-4 text-lg">Loading MoveiHub...</p>
         </div>
       </div>
@@ -61,7 +61,7 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-bold text-white">
                 Trending Movies
               </h2>
-              <Link href="/movies/trending" className="text-purple-400 hover:text-purple-300 transition-colors">
+              <Link href="/movies/trending" className="text-red-400 hover:text-red-300 transition-colors">
                 Explore All
               </Link>
             </div>
@@ -84,7 +84,7 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-bold text-white">
                 Top Rated Movies
               </h2>
-               <Link href="/movies/top-rated" className="text-purple-400 hover:text-purple-300 transition-colors">
+               <Link href="/movies/top-rated" className="text-red-400 hover:text-red-300 transition-colors">
                 Explore All
               </Link>
             </div>
@@ -108,7 +108,7 @@ export default function Home() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <span className="text-white font-bold text-xl">
-                Movei<span className="text-purple-400">Hub</span>
+                Movei<span className="text-red-400">Hub</span>
               </span>
             </div>
             <p className="text-gray-400 text-sm">

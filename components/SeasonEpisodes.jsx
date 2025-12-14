@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { getSeasons, getImageUrl } from '@/lib/tmdb';
 import { PlayCircle } from 'lucide-react';
 
-export default function SeasonEpisodes({ tvId, numberOfSeasons }) {
+export default function SeasonEpisodes({ tvId, numberOfSeasons, onPlay }) {
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [seasonData, setSeasonData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ export default function SeasonEpisodes({ tvId, numberOfSeasons }) {
         setSeasonData(data);
       } catch (err) {
         console.error(err);
-        setError('Errore nel caricamento della stagione');
+        setError('Error loading the episodes.');
       } finally {
         setLoading(false);
       }
@@ -66,7 +66,8 @@ export default function SeasonEpisodes({ tvId, numberOfSeasons }) {
           {seasonData.episodes.map((episode) => (
             <div
               key={episode.id}
-              className="flex gap-4 bg-gray-900/60 border border-gray-800 rounded-lg p-3 hover:bg-gray-900 transition"
+              onClick={() => onPlay && onPlay(episode, selectedSeason)}
+              className="flex gap-4 bg-gray-900/60 border border-gray-800 rounded-lg p-3 hover:bg-gray-900 transition cursor-pointer"
             >
               <div className="w-32 h-20 flex-shrink-0 relative overflow-hidden rounded-md bg-gray-800">
                 {episode.still_path ? (
@@ -85,7 +86,7 @@ export default function SeasonEpisodes({ tvId, numberOfSeasons }) {
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-purple-300 font-semibold">
+                    <p className="text-sm text-red-300 font-semibold">
                       S{episode.season_number} · E{episode.episode_number}
                     </p>
                     <h4 className="text-white font-semibold">

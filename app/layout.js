@@ -35,6 +35,8 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="pt-16">
           {children}
+          {/* root per i modali / player */}
+        <div id="modal-root" />
         </main>
       </body>
     </html>

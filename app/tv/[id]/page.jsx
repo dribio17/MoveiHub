@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import SeasonEpisodes from '@/components/SeasonEpisodes';
+import PlayerModal from '@/components/PlayerModal';
 import { 
   Star, 
   Calendar, 
@@ -27,7 +28,21 @@ export default function TvShowDetail() {
   const [show, setShow] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('episodes');
+
+
+  const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const [playerSrc, setPlayerSrc] = useState(null);
+  const [playerTitle, setPlayerTitle] = useState('');
+
+
+  const handlePlayEpisode = (episode, seasonNumber) => {
+    const url = `https://vidsrc.me/embed/tv?tmdb=${tvId}&season=${seasonNumber}&episode=${episode.episode_number}`;
+    setPlayerSrc(url);
+    setPlayerTitle(episode.name);
+    setIsPlayerOpen(true);
+  };
+
 
   useEffect(() => {
     const fetchShowDetails = async () => {
@@ -55,7 +70,7 @@ export default function TvShowDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -68,7 +83,7 @@ export default function TvShowDetail() {
           <p className="text-gray-400 mb-6">{error || 'The TV show you are looking for does not exist.'}</p>
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Home</span>
@@ -194,7 +209,7 @@ export default function TvShowDetail() {
                     {genres.map((genre) => (
                       <span
                         key={genre.id}
-                        className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm border border-purple-600/30"
+                        className="px-3 py-1 bg-red-600/20 text-red-300 rounded-full text-sm border border-red-600/30"
                       >
                         {genre.name}
                       </span>
@@ -206,7 +221,7 @@ export default function TvShowDetail() {
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4">
                 {trailer && (
-                  <a href={`https://www.youtube.com/watch?v=${trailer.key}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                  <a href={`https://www.youtube.com/watch?v=${trailer.key}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
                     <Play className="h-5 w-5" />
                     <span>Watch Trailer</span>
                   </a>
@@ -232,7 +247,7 @@ export default function TvShowDetail() {
                       onClick={() => setActiveTab(tab)}
                       className={`py-2 px-1 border-b-2 font-medium text-sm capitalize transition-colors ${
                         activeTab === tab
-                          ? 'border-purple-500 text-purple-400'
+                          ? 'border-red-500 text-red-400'
                           : 'border-transparent text-gray-400 hover:text-gray-300 hover:border-gray-300'
                       }`}
                     >
@@ -248,6 +263,7 @@ export default function TvShowDetail() {
                   <SeasonEpisodes
                     tvId={tvId}
                     numberOfSeasons={number_of_seasons}
+                    onPlay={handlePlayEpisode}
                   />
                 )}
                 {activeTab === 'overview' && (
@@ -344,6 +360,12 @@ export default function TvShowDetail() {
             </section>
           )}
         </div>
+        <PlayerModal
+          isOpen={isPlayerOpen}
+          onClose={() => setIsPlayerOpen(false)}
+          src={playerSrc}
+          title={playerTitle}
+        />
       </div>
     </div>
   );

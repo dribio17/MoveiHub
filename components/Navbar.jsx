@@ -32,7 +32,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <span className="text-white font-bold text-2xl tracking-wider">
-                Movei<span className="text-purple-400">Hub</span>
+                Movei<span className="text-red-400">Hub</span>
               </span>
             </Link>
 
@@ -44,13 +44,13 @@ const Navbar = () => {
                   href={link.href}
                   className={`transition-colors text-lg relative ${
                     pathname === link.href
-                      ? 'text-purple-400'
-                      : 'text-gray-300 hover:text-purple-400'
+                      ? 'text-red-400'
+                      : 'text-gray-300 hover:text-red-400'
                   }`}
                 >
                   {link.label}
                   {pathname === link.href && (
-                     <span className="absolute left-0 -bottom-2 h-0.5 w-full bg-purple-400"></span>
+                     <span className="absolute left-0 -bottom-2 h-0.5 w-full bg-red-400"></span>
                   )}
                 </Link>
               ))}
@@ -67,7 +67,7 @@ const Navbar = () => {
                       placeholder="Search..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full bg-transparent text-white placeholder-gray-400 border border-gray-600 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all"
+                      className="w-full bg-transparent text-white placeholder-gray-400 border border-gray-600 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500 transition-all"
                     />
                     <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                   </div>
@@ -99,7 +99,7 @@ const Navbar = () => {
                     href={link.href}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                       pathname === link.href
-                        ? 'bg-purple-500 text-white'
+                        ? 'bg-red-500 text-white'
                         : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
@@ -118,7 +118,7 @@ const Navbar = () => {
         <div className="md:hidden fixed inset-0 bg-black/90 z-50 p-4 animate-fade-in">
            <div className="flex items-center justify-between mb-4">
              <span className="text-white font-bold text-2xl tracking-wider">
-                Movei<span className="text-purple-400">Hub</span>
+                Movei<span className="text-red-400">Hub</span>
               </span>
              <button onClick={() => setIsMobileSearchOpen(false)} className="text-gray-300 hover:text-white p-2">
                <X className="h-6 w-6" />
@@ -132,7 +132,7 @@ const Navbar = () => {
                 autoFocus
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-gray-800 text-white placeholder-gray-400 rounded-lg pl-12 pr-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full bg-gray-800 text-white placeholder-gray-400 rounded-lg pl-12 pr-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-red-500"
               />
               <Search className="absolute left-4 top-3.5 h-6 w-6 text-gray-400" />
             </div>

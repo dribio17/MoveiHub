@@ -27,7 +27,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         previousClassName={'w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-700 transition-colors'}
         nextClassName={'w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-700 transition-colors'}
         breakClassName={'w-9 h-9 flex items-center justify-center'}
-        activeClassName={'bg-purple-600 text-white font-bold pointer-events-none'}
+        activeClassName={'bg-red-600 text-white font-bold pointer-events-none'}
         disabledClassName={'opacity-50 cursor-not-allowed'}
       />
     </div>

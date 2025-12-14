@@ -314,7 +314,7 @@ const MoveiBot = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group animate-slide-in-up chat-button-hover"
+          className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group animate-slide-in-up chat-button-hover"
           aria-label="Open MoveiBot"
         >
           <div className="relative">
@@ -328,21 +328,21 @@ const MoveiBot = () => {
       {isOpen && (
         <div 
           ref={chatWindowRef}
-          className={`fixed z-50 bg-gray-900 border border-purple-500/30 rounded-2xl shadow-2xl backdrop-blur-sm animate-slide-in-right ${
+          className={`fixed z-50 bg-gray-900 border border-red-500/30 rounded-2xl shadow-2xl backdrop-blur-sm animate-slide-in-right ${
             isFullscreen 
               ? 'inset-4 md:inset-6' 
               : 'bottom-6 right-6 w-80 h-96 md:w-96 md:h-[500px]'
           }`}
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-purple-800 p-4 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-gradient-to-r from-red-600 to-red-800 p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="bg-white/20 p-2 rounded-full animate-pulse">
                 <Bot className="h-5 w-5 text-white" />
               </div>
               <div>
                 <h3 className="text-white font-bold text-lg">MoveiBot</h3>
-                <p className="text-purple-200 text-xs">AI Assistant</p>
+                <p className="text-red-200 text-xs">AI Assistant</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
@@ -390,24 +390,24 @@ const MoveiBot = () => {
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                     message.type === 'user'
-                      ? 'bg-purple-600 text-white'
+                      ? 'bg-red-600 text-white'
                       : 'bg-gray-800 text-gray-100 border border-gray-700'
                   }`}
                 >
                   <div className="flex items-start space-x-2">
                     {message.type === 'bot' && (
-                      <Bot className="h-4 w-4 text-purple-400 mt-1 flex-shrink-0" />
+                      <Bot className="h-4 w-4 text-red-400 mt-1 flex-shrink-0" />
                     )}
                     <div className="flex-1">
                       <p className="text-sm leading-relaxed whitespace-pre-line">{message.content}</p>
                       <p className={`text-xs mt-2 ${
-                        message.type === 'user' ? 'text-purple-200' : 'text-gray-500'
+                        message.type === 'user' ? 'text-red-200' : 'text-gray-500'
                       }`}>
                         {formatTime(message.timestamp)}
                       </p>
                     </div>
                     {message.type === 'user' && (
-                      <User className="h-4 w-4 text-purple-200 mt-1 flex-shrink-0" />
+                      <User className="h-4 w-4 text-red-200 mt-1 flex-shrink-0" />
                     )}
                   </div>
                 </div>
@@ -418,11 +418,11 @@ const MoveiBot = () => {
               <div className="flex justify-start animate-fade-in">
                 <div className="bg-gray-800 text-gray-100 border border-gray-700 rounded-2xl px-4 py-3">
                   <div className="flex items-center space-x-2">
-                    <Bot className="h-4 w-4 text-purple-400" />
+                    <Bot className="h-4 w-4 text-red-400" />
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full typing-dot"></div>
-                      <div className="w-2 h-2 bg-purple-400 rounded-full typing-dot"></div>
-                      <div className="w-2 h-2 bg-purple-400 rounded-full typing-dot"></div>
+                      <div className="w-2 h-2 bg-red-400 rounded-full typing-dot"></div>
+                      <div className="w-2 h-2 bg-red-400 rounded-full typing-dot"></div>
+                      <div className="w-2 h-2 bg-red-400 rounded-full typing-dot"></div>
                     </div>
                   </div>
                 </div>
@@ -442,7 +442,7 @@ const MoveiBot = () => {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ketik pesan Anda..."
-                  className="w-full bg-gray-800 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 resize-none focus:outline-none focus:border-purple-500 transition-colors"
+                  className="w-full bg-gray-800 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 resize-none focus:outline-none focus:border-red-500 transition-colors"
                   rows="1"
                   style={{ minHeight: '44px', maxHeight: '120px' }}
                 />
@@ -450,7 +450,7 @@ const MoveiBot = () => {
               <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim() || isLoading}
-                className="bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white p-3 rounded-xl transition-colors hover:scale-105 active:scale-95"
+                className="bg-red-600 hover:bg-red-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white p-3 rounded-xl transition-colors hover:scale-105 active:scale-95"
                 aria-label="Send message"
               >
                 <Send className="h-4 w-4" />

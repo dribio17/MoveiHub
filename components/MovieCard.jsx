@@ -54,7 +54,7 @@ const MovieCard = ({ movie }) => {
 
         {/* Movie Info Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-          <h3 className="text-white font-bold text-sm line-clamp-1 group-hover:text-purple-300 transition-colors">
+          <h3 className="text-white font-bold text-sm line-clamp-1 group-hover:text-red-300 transition-colors">
             {displayTitle}
           </h3>
           {year && (

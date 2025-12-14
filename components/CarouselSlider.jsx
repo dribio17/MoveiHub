@@ -57,7 +57,7 @@ const CarouselSlider = ({ movies, title }) => {
               {title}
             </h2>
             {categorySlug && (
-              <Link href={`/movies/${categorySlug}`} className="text-purple-400 hover:text-purple-300 transition-colors">
+              <Link href={`/movies/${categorySlug}`} className="text-red-400 hover:text-red-300 transition-colors">
                 Explore All
               </Link>
             )}

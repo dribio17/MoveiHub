@@ -43,7 +43,7 @@ function SearchResults() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center py-16">
-        <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -60,7 +60,7 @@ function SearchResults() {
   return (
     <div>
       <h1 className="text-3xl font-bold text-white mb-8">
-        Search results for: <span className="text-purple-400">{query}</span>
+        Search results for: <span className="text-red-400">{query}</span>
       </h1>
       {results.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
@@ -79,7 +79,7 @@ export default function SearchPage() {
   return (
     <div className="min-h-screen bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-        <Suspense fallback={<div className="flex items-center justify-center py-16"><div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div></div>}>
+        <Suspense fallback={<div className="flex items-center justify-center py-16"><div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div></div>}>
           <SearchResults />
         </Suspense>
       </div>

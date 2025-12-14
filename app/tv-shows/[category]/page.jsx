@@ -117,7 +117,7 @@ export default function TvShowsCategoryPage() {
   return (
     <div className="min-h-screen bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-        <Suspense fallback={<div className="flex items-center justify-center py-16"><div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div></div>}>
+        <Suspense fallback={<div className="flex items-center justify-center py-16"><div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div></div>}>
           <CategoryPageContent />
         </Suspense>
       </div>

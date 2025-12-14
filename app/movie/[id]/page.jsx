@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import PlayerModal from '@/components/PlayerModal';
 import { 
   Star, 
   Calendar, 
@@ -30,6 +31,17 @@ export default function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+
+
+  // dentro MovieDetail
+  const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const [playerSrc, setPlayerSrc] = useState(null);
+
+  const handleWatchMovie = () => {
+    const url = `https://vidsrc.me/embed/movie?tmdb=${movieId}`; // o la URL reale
+    setPlayerSrc(url);
+    setIsPlayerOpen(true);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +80,7 @@ export default function MovieDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -81,7 +93,7 @@ export default function MovieDetail() {
           <p className="text-gray-400 mb-6">{error || 'The movie you are looking for does not exist.'}</p>
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Home</span>
@@ -172,17 +184,34 @@ export default function MovieDetail() {
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
               {genres && genres.map(genre => (
-                <span key={genre.id} className="px-3 py-1 bg-purple-600/50 text-purple-200 text-xs font-semibold rounded-full">
+                <span key={genre.id} className="px-3 py-1 bg-red-600/50 text-red-200 text-xs font-semibold rounded-full">
                   {genre.name}
                 </span>
               ))}
             </div>
-            {trailer && (
-              <a href={`https://www.youtube.com/watch?v=${trailer.key}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 mt-6 border border-transparent text-lg font-medium rounded-md text-black bg-white hover:bg-gray-200 transition-colors">
-                <PlayCircle className="mr-2 h-6 w-6" />
-                Watch Trailer
-              </a>
-            )}
+            {/* Bottoni azione */}
+            <div className="mt-6 flex flex-wrap gap-4">
+              <button
+                onClick={handleWatchMovie}
+                className="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                <Play className="h-5 w-5" />
+                <span>Watch Movie</span>
+              </button>
+
+              {trailer && (
+                <a
+                  href={`https://www.youtube.com/watch?v=${trailer.key}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 border border-transparent text-lg font-medium rounded-md text-black bg-white hover:bg-gray-200 px-6 py-3 transition-colors"
+                >
+                  <PlayCircle className="mr-2 h-6 w-6" />
+                  <span>Watch Trailer</span>
+                </a>
+              )}
+            </div>
+
           </div>
         </div>
 
@@ -192,19 +221,19 @@ export default function MovieDetail() {
             <nav className="-mb-px flex space-x-8" aria-label="Tabs">
               <button
                 onClick={() => setActiveTab('overview')}
-                className={`${activeTab === 'overview' ? 'border-purple-400 text-purple-400' : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg transition-colors`}
+                className={`${activeTab === 'overview' ? 'border-red-400 text-red-400' : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg transition-colors`}
               >
                 Overview
               </button>
               <button
                 onClick={() => setActiveTab('cast')}
-                className={`${activeTab === 'cast' ? 'border-purple-400 text-purple-400' : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg transition-colors`}
+                className={`${activeTab === 'cast' ? 'border-red-400 text-red-400' : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg transition-colors`}
               >
                 Cast
               </button>
               <button
                 onClick={() => setActiveTab('similar')}
-                className={`${activeTab === 'similar' ? 'border-purple-400 text-purple-400' : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg transition-colors`}
+                className={`${activeTab === 'similar' ? 'border-red-400 text-red-400' : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg transition-colors`}
               >
                 More Like This
               </button>
@@ -253,6 +282,12 @@ export default function MovieDetail() {
           </div>
         </div>
       </div>
+      <PlayerModal
+        isOpen={isPlayerOpen}
+        onClose={() => setIsPlayerOpen(false)}
+        src={playerSrc}
+        title={title}
+      />
     </div>
   );
 }

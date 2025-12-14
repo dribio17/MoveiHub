@@ -65,7 +65,7 @@ const Hero = () => {
             >
                 Read More
             </Link>
-            <button className="inline-flex items-center justify-center px-6 py-3 border border-purple-500 text-base font-medium rounded-md text-white bg-purple-600/30 hover:bg-purple-700/50 backdrop-blur-sm transition-colors">
+            <button className="inline-flex items-center justify-center px-6 py-3 border border-red-500 text-base font-medium rounded-md text-white bg-red-600/30 hover:bg-red-700/50 backdrop-blur-sm transition-colors">
               <PlayCircle className="mr-2 h-6 w-6" />
               Watch Trailer
             </button>
