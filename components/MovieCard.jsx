@@ -24,6 +24,14 @@ const MovieCard = ({ movie }) => {
   return (
     <Link href={`/${type}/${id}`} className="group block">
       <div className="relative overflow-hidden rounded-lg bg-gray-800 transition-all duration-300 ease-out group-hover:scale-105 group-hover:shadow-2xl aspect-[2/3] w-full">
+        
+        {/* Type badge */}
+        <div className="absolute top-2 right-2">
+          <span className="rounded-full bg-black/70 backdrop-blur-sm px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
+            {type === 'tv' ? 'TV Show' : 'Movie'}
+          </span>
+        </div>
+
         {/* Poster Image */}
         <img
           src={getImageUrl(poster_path, 'w500')}
