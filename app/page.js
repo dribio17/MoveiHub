@@ -43,7 +43,7 @@ export default function Home() {
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-white mt-4 text-lg">Loading MoveiHub...</p>
+          <p className="text-white mt-4 text-lg">Loading dribio...</p>
         </div>
       </div>
     );

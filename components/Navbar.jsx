@@ -118,7 +118,7 @@ const Navbar = () => {
         <div className="md:hidden fixed inset-0 bg-black/90 z-50 p-4 animate-fade-in">
            <div className="flex items-center justify-between mb-4">
              <span className="text-white font-bold text-2xl tracking-wider">
-                Movei<span className="text-red-400">Hub</span>
+                dri<span className="text-red-400">bio</span>
               </span>
              <button onClick={() => setIsMobileSearchOpen(false)} className="text-gray-300 hover:text-white p-2">
                <X className="h-6 w-6" />
