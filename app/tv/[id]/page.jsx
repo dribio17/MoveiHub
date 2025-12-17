@@ -37,7 +37,7 @@ export default function TvShowDetail() {
 
 
   const handlePlayEpisode = (episode, seasonNumber) => {
-    const url = `https://vidsrc.me/embed/tv?tmdb=${tvId}&season=${seasonNumber}&episode=${episode.episode_number}`;
+    const url = `https://vsrc.su/embed/tv?tmdb=${tvId}&season=${seasonNumber}&episode=${episode.episode_number}&ds_lang=sq&autoplay=1`;
     setPlayerSrc(url);
     setPlayerTitle(episode.name);
     setIsPlayerOpen(true);

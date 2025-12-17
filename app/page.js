@@ -77,7 +77,6 @@ export default function Home() {
           movies={popularMovies.map(m => ({...m, media_type: 'movie'}))}
           title="Popular Movies" 
         />
-        
         <section>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
@@ -95,11 +94,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+         {/*
         <CarouselSlider 
           movies={upcomingMovies.map(m => ({...m, media_type: 'movie'}))}
           title="Upcoming Movies"
         />
+        */}
       </div>
 
       {/* Footer */}

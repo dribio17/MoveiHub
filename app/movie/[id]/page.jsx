@@ -38,7 +38,7 @@ export default function MovieDetail() {
   const [playerSrc, setPlayerSrc] = useState(null);
 
   const handleWatchMovie = () => {
-    const url = `https://vidsrc.me/embed/movie?tmdb=${movieId}`; // o la URL reale
+    const url = `https://vsrc.su/embed/movie?tmdb=${movieId}&ds_lang=sq&autoplay=1`; // o la URL reale
     setPlayerSrc(url);
     setIsPlayerOpen(true);
   };

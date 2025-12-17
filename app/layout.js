@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "MoveiHub - Stream Your Favorite Movies & TV Shows",
-  description: "Discover and stream the latest movies and TV shows. Watch trailers, read reviews, and find your next favorite entertainment on MoveiHub.",
+  title: "DRIBIO - Stream Your Favorite Movies & TV Shows",
+  description: "Discover and stream the latest movies and TV shows. Watch trailers, read reviews, and find your next favorite entertainment on dribio.",
   keywords: "movies, tv shows, streaming, entertainment, trailers, reviews",
-  authors: [{ name: "MoveiHub Team" }],
+  authors: [{ name: "dribio" }],
   openGraph: {
-    title: "MoveiHub - Stream Your Favorite Movies & TV Shows",
-    description: "Discover and stream the latest movies and TV shows on MoveiHub.",
+    title: "DRIBIO - Stream Your Favorite Movies & TV Shows",
+    description: "Discover and stream the latest movies and TV shows on dribio.",
     type: "website",
     locale: "en_US",
   },
